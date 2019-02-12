@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-//TODO: add the Microsoft.EntityFrameworkCore
+using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -57,14 +57,14 @@ namespace LuckySpin.Controllers
 
             //TODO: pass the player.Id to the SpinIt action
             //      (remember, you have to pass it as an object property so use the 'new { }' syntax)
-            return RedirectToAction("SpinIt");
+            return RedirectToAction("SpinIt", new {player.Id});
         }
 
         /***
          * SpinIt Action
          **/  
                
-         public IActionResult SpinIt() //TODO: add an int parameter to receive the id
+         public IActionResult SpinIt(int P_Id) //TODO: add an int parameter to receive the id
         {
             //TODO: Use the _dbc and the given id to get the current player object 
             //       from Players, and Include her Spins (use Lamda expressions)
